@@ -1,0 +1,11 @@
+button {
+    color: white;
+    transition: all;
+    transition-duration: 200ms;
+    background-color: blue;
+
+    &.open {
+        background-color: red;
+        padding: 4em;
+    }
+}

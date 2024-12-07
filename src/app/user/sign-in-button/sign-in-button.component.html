@@ -1,0 +1,5 @@
+<button (click)="onClick()" [class.open]="open()">{{ open() ? "Open" : "Closed" }}</button>
+
+@if (open()) {
+    <span>It is open btw</span>
+}
