@@ -1,0 +1,11 @@
+form {
+    @apply w-fit min-w-96 rounded border p-3 transition-all hover:shadow;
+
+    h1 {
+        @apply mb-3 text-3xl font-semibold;
+    }
+
+    section {
+        @apply flex flex-col gap-3;
+    }
+}
