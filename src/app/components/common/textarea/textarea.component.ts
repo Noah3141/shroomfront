@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input, signal } from '@angular/core';
 
 @Component({
     selector: 'app-textarea',
@@ -6,4 +6,8 @@ import { Component, Input } from '@angular/core';
     styleUrl: './textarea.component.css',
     imports: [],
 })
-export class TextareaComponent {}
+export class TextareaComponent {
+    placeholder = input<string>();
+    value = signal<string>('');
+    onChange = input<() => void>();
+}

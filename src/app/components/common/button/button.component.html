@@ -1,1 +1,16 @@
-<button (click)="onClick($event)" class="button">Click me</button>
+<button
+    (mousedown)="setMouseDown()"
+    (mouseup)="setMouseUp()"
+    (mouseleave)="setMouseUp()"
+    class="{{ size() }} {{ fill() }}-{{ color() }} "
+    [class.clicked]="mouseDown"
+>
+    <div class="container">
+        <div class="contents {{ status() == 'idle' && 'visible' }}">
+            <ng-content />
+        </div>
+        <div class=" contents loader {{ status() == 'pending' && 'visible' }}">Load</div>
+        <div class=" contents loader {{ status() == 'error' && 'visible' }}">Err</div>
+        <div class=" contents loader {{ status() == 'success' && 'visible' }}">Success!</div>
+    </div>
+</button>
