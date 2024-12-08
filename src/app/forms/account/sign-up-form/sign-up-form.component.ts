@@ -12,14 +12,36 @@ import { ReactiveFormsModule } from '@angular/forms';
     styleUrl: './sign-up-form.component.css',
 })
 export class SignUpFormComponent {
-    status = signal<Status>('idle');
+    status: Status = 'idle';
     email = new FormControl<string>('');
     password = new FormControl<string>('');
 
     submitForm(event: MouseEvent) {
         event.preventDefault();
-        console.log('Submitting!');
-        console.log(this.email.value);
-        console.log(this.password.value);
+
+        if (this.status == 'idle') {
+            console.log('Submitting!');
+            console.log(this.email.value);
+            console.log(this.password.value);
+            this.status = 'pending';
+
+            try {
+                let foo = Math.random();
+
+                if (foo > 0.5) {
+                    this.status = 'success';
+                    setTimeout(() => {
+                        this.status = 'idle';
+                    }, 3000);
+                } else {
+                    throw new Error('foo');
+                }
+            } catch {
+                this.status = 'error';
+                setTimeout(() => {
+                    this.status = 'idle';
+                }, 3000);
+            }
+        }
     }
 }

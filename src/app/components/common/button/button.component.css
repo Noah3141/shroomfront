@@ -17,7 +17,7 @@ button {
     }
 
     .container {
-        @apply relative z-10 flex w-full shrink-0 flex-row items-center justify-center whitespace-nowrap;
+        @apply relative z-10 flex w-full whitespace-nowrap;
 
         .contents {
             @apply grid size-full scale-0 place-items-center transition-all;
@@ -28,7 +28,7 @@ button {
         }
 
         .loader {
-            @apply absolute;
+            @apply absolute left-1/2 grid -translate-x-1/2 place-items-center;
         }
     }
 

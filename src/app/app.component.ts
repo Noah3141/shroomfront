@@ -5,7 +5,7 @@ import { ButtonComponent } from './components/common/button/button.component';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, ButtonComponent],
+    imports: [RouterOutlet, ButtonComponent, SignUpFormComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
 })

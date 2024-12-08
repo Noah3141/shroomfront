@@ -4,6 +4,7 @@
     (mouseleave)="setMouseUp()"
     class="{{ size() }} {{ fill() }}-{{ color() }} "
     [class.clicked]="mouseDown"
+    [disabled]="status() !== 'idle'"
 >
     <div class="container">
         <div class="contents {{ status() == 'idle' && 'visible' }}">
