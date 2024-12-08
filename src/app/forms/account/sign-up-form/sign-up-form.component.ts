@@ -16,7 +16,7 @@ export class SignUpFormComponent {
     email = new FormControl<string>('');
     password = new FormControl<string>('');
 
-    submitForm(event: MouseEvent) {
+    async submitForm(event: MouseEvent) {
         event.preventDefault();
 
         if (this.status == 'idle') {
@@ -25,23 +25,25 @@ export class SignUpFormComponent {
             console.log(this.password.value);
             this.status = 'pending';
 
-            try {
-                let foo = Math.random();
+            setTimeout(() => {
+                try {
+                    let foo = Math.random();
 
-                if (foo > 0.5) {
-                    this.status = 'success';
+                    if (foo > 0.5) {
+                        this.status = 'success';
+                        setTimeout(() => {
+                            this.status = 'idle';
+                        }, 3000);
+                    } else {
+                        throw new Error('foo');
+                    }
+                } catch {
+                    this.status = 'error';
                     setTimeout(() => {
                         this.status = 'idle';
                     }, 3000);
-                } else {
-                    throw new Error('foo');
                 }
-            } catch {
-                this.status = 'error';
-                setTimeout(() => {
-                    this.status = 'idle';
-                }, 3000);
-            }
+            }, 2000);
         }
     }
 }

@@ -1,0 +1,16 @@
+<div class="pt-12">
+    <button (click)="loadProducts()">Load</button>
+    <div class="flex flex-col gap-6 p-6">
+        @if (isLoading) {
+            <div class="h-96 w-full rounded border shadow">Loading...</div>
+        }
+
+        @for (item of products; track $index) {
+            <div class="rounded border shadow">
+                <h1>{{ item.title }}</h1>
+                <span>{{ item.description }}</span>
+                <img class="w-96" src="{{ item.image }}" />
+            </div>
+        }
+    </div>
+</div>
