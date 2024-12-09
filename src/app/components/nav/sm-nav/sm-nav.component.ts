@@ -4,10 +4,11 @@ import { CartIconComponent } from '../../../assets/cart-icon/cart-icon.component
 import { ProfileIconComponent } from '../../../assets/profile-icon/profile-icon.component';
 import { CartStateService } from '../../../services/cart-state/cart-state.service';
 import { SidePanelComponent } from '../side-panel/side-panel.component';
+import { CartPanelComponent } from "../../cart/cart-panel/cart-panel.component";
 
 @Component({
     selector: 'app-sm-nav',
-    imports: [HamburgerIconComponent, SidePanelComponent, CartIconComponent, ProfileIconComponent],
+    imports: [HamburgerIconComponent, SidePanelComponent, CartIconComponent, ProfileIconComponent, CartPanelComponent],
     templateUrl: './sm-nav.component.html',
     styleUrl: './sm-nav.component.css',
 })

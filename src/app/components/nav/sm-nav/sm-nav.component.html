@@ -16,7 +16,5 @@
 <app-side-panel title="Navigation" [class.open]="sidePanelOpen" (closepanel)="closeSidePanel()"> Bar </app-side-panel>
 
 <app-side-panel title="Cart" [class.open]="this.cartState.panelOpen()" (closepanel)="this.cartState.closePanel()">
-    @for (item of this.cartState.contents(); track item.product.id) {
-        <span>{{ item.product.title }}</span>
-    }
+    <app-cart-panel />
 </app-side-panel>

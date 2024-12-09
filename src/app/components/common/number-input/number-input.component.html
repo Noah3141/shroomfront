@@ -1,0 +1,6 @@
+<div class="flex flex-row items-center gap-1">
+    <app-button [disabled]="atMinimum()" (onclick)="decrement()" fill="hollow" size="square" color="neutral">-</app-button>
+    <div class="grid size-10 place-items-center">{{ control().value }}</div>
+    <app-button (onclick)="increment()" fill="hollow" size="square" color="neutral">+</app-button>
+    <input type="number" [formControl]="control()" />
+</div>

@@ -1,9 +1,5 @@
-app-button {
-    @apply shadow-lg shadow-teal-500;
-}
-
 button {
-    @apply z-0 h-fit w-fit cursor-pointer rounded-lg transition-all ease-out hover:shadow disabled:cursor-default;
+    @apply z-0 h-fit w-fit cursor-pointer rounded-lg transition-all ease-out hover:shadow disabled:pointer-events-none disabled:cursor-default disabled:opacity-80;
 
     &.clicked {
         @apply translate-y-[3px] shadow-none;
@@ -35,14 +31,20 @@ button {
         }
     }
 
+    &.blank-neutral,
+    &.blank-primary,
+    &.blank-danger {
+        @apply bg-opacity-0 opacity-90 hover:bg-opacity-15 hover:opacity-100;
+    }
+
     &.blank-neutral {
-        @apply border border-neutral-300 bg-neutral-500 bg-opacity-0 text-neutral-500 opacity-90 hover:bg-opacity-15 hover:opacity-100;
+        @apply border border-neutral-300 bg-neutral-500 text-neutral-500;
     }
     &.blank-primary {
-        @apply border border-primary-300 bg-primary-500 bg-opacity-0 text-primary-500 opacity-90 hover:bg-opacity-15 hover:opacity-100;
+        @apply border border-primary-300 bg-primary-500 text-primary-500;
     }
     &.blank-danger {
-        @apply border border-danger-300 bg-danger-500 bg-opacity-0 text-danger-500 opacity-90 hover:bg-opacity-15 hover:opacity-100;
+        @apply border border-danger-300 bg-danger-500 text-danger-500;
     }
 
     /* Hollow */
@@ -70,14 +72,19 @@ button {
     }
 
     /* Splash */
+    &.splash-neutral,
+    &.splash-primary,
+    &.splash-danger {
+        @apply relative overflow-hidden after:absolute after:left-1/2 after:top-1/2 after:z-0 after:h-[500%] after:w-full after:origin-center after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-6 after:scale-x-0 after:transition-all after:ease-out hover:after:scale-x-105;
+    }
 
     &.splash-neutral {
-        @apply relative overflow-hidden border border-neutral-400 bg-neutral-200 text-neutral-700 after:absolute after:left-1/2 after:top-1/2 after:z-0 after:h-[500%] after:w-full after:origin-center after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-6 after:scale-x-0 after:bg-neutral-950 after:transition-all after:ease-out hover:border-transparent hover:text-neutral-100 hover:after:scale-x-105;
+        @apply border border-neutral-400 bg-neutral-200 text-neutral-700 after:bg-neutral-950 hover:border-transparent hover:text-neutral-100;
     }
     &.splash-primary {
-        @apply relative overflow-hidden border-none bg-neutral-950 text-neutral-50 outline-none after:absolute after:left-1/2 after:top-1/2 after:z-0 after:h-[500%] after:w-full after:origin-center after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-6 after:scale-x-0 after:bg-primary-500 after:transition-all after:ease-out hover:bg-primary-500 hover:text-primary-950 hover:after:scale-x-105;
+        @apply border-none bg-neutral-950 text-neutral-50 outline-none after:bg-primary-500 hover:bg-primary-500 hover:text-primary-950;
     }
     &.splash-danger {
-        @apply relative overflow-hidden border-none bg-neutral-950 text-neutral-50 outline-none after:absolute after:left-1/2 after:top-1/2 after:z-0 after:h-[500%] after:w-full after:origin-center after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-6 after:scale-x-0 after:bg-danger-500 after:transition-all after:ease-out hover:bg-danger-500 hover:text-danger-950 hover:after:scale-x-105;
+        @apply border-none bg-neutral-950 text-neutral-50 outline-none after:bg-danger-500 hover:bg-danger-500 hover:text-danger-950;
     }
 }

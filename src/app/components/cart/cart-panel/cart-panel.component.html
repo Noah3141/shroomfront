@@ -1,0 +1,5 @@
+<div class="flex flex-col gap-1">
+    @for (item of this.itemized(); track item.product.id) {
+        <span>{{ item.product.title }} - {{ item.qty }}</span>
+    }
+</div>

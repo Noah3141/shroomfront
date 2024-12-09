@@ -20,8 +20,4 @@ export class ProductService {
     fetchProducts(): Observable<Product[]> {
         return this.http.get<Product[]>(`https://api.sampleapis.com/coffee/hot`);
     }
-
-    fetchProduct(): Observable<Product> {
-        return this.http.get<Product>(`https://api.sampleapis.com/coffee/hot`);
-    }
 }

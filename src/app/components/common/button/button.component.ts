@@ -14,6 +14,7 @@ export class ButtonComponent {
     color = input<'primary' | 'neutral' | 'danger'>('neutral');
     status = input<Status>('idle');
     className = input();
+    disabled = input(false);
 
     onclick = output<MouseEvent>();
     onClick(event: MouseEvent) {

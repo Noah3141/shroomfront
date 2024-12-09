@@ -5,7 +5,7 @@
     (click)="onClick($event)"
     class="{{ size() }} {{ fill() }}-{{ color() }} "
     [class.clicked]="mouseDown"
-    [disabled]="status() !== 'idle'"
+    [disabled]="status() !== 'idle' || disabled()"
 >
     <div class="container">
         <div class="contents {{ status() == 'idle' && 'visible' }}">

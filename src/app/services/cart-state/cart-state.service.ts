@@ -23,8 +23,8 @@ export class CartStateService {
     }
 
     contents = signal<CartItem[]>([]);
-    add(product: Product) {
-        this.contents.update((contents) => contents.concat({ product }));
+    add(product: Product, qty: number = 1) {
+        this.contents.update((contents) => contents.concat(Array(qty).fill({ product })));
     }
     remove(product: Product) {
         this.contents.update((contents) => {

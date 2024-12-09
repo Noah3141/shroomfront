@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
     styleUrl: './product-card.component.css',
 })
 export class ProductCardComponent {
-    constructor(public cartState: CartStateService) {}
+    constructor(private cartState: CartStateService) {}
 
     status: Status = 'idle';
     product = input.required<Product>();

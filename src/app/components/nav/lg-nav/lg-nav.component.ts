@@ -4,10 +4,11 @@ import { ProfileIconComponent } from '../../../assets/profile-icon/profile-icon.
 import { SidePanelComponent } from '../side-panel/side-panel.component';
 import { CartStateService } from '../../../services/cart-state/cart-state.service';
 import { RouterLink } from '@angular/router';
+import { CartPanelComponent } from "../../cart/cart-panel/cart-panel.component";
 
 @Component({
     selector: 'app-lg-nav',
-    imports: [CartIconComponent, ProfileIconComponent, SidePanelComponent, RouterLink],
+    imports: [CartIconComponent, ProfileIconComponent, SidePanelComponent, RouterLink, CartPanelComponent],
     templateUrl: './lg-nav.component.html',
     styleUrl: './lg-nav.component.css',
 })

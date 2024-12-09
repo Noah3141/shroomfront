@@ -3,21 +3,29 @@ import { Title } from '@angular/platform-browser';
 import { Product, ProductService } from '../../../services/product/product.service';
 import { Status } from '../../../../types/status';
 import { ActivatedRoute } from '@angular/router';
+import { ButtonComponent } from '../../../components/common/button/button.component';
+import { CartStateService } from '../../../services/cart-state/cart-state.service';
+import { NumberInputComponent } from '../../../components/common/number-input/number-input.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-view-page',
-    imports: [],
+    imports: [ButtonComponent, NumberInputComponent],
     templateUrl: './view-page.component.html',
     styleUrl: './view-page.component.css',
 })
 export class ViewPage {
     status: Status = 'pending';
     productId: string | null = null;
+    product?: Product;
+
+    addQty = new FormControl<number>(1);
 
     constructor(
         private title: Title,
         private route: ActivatedRoute,
         private productService: ProductService,
+        private cartState: CartStateService,
     ) {}
 
     ngOnInit() {
@@ -29,9 +37,9 @@ export class ViewPage {
                 return;
             }
 
-            this.productService.fetchProduct().subscribe({
+            this.productService.fetchProducts().subscribe({
                 next: (res) => {
-                    this.product = res;
+                    this.product = res.find((item) => item.id == Number(this.productId));
                     this.status = 'success';
                 },
                 error: (res) => {
@@ -42,5 +50,11 @@ export class ViewPage {
         });
     }
 
-    product?: Product;
+    addProductToCart() {
+        if (!!this.product) {
+            this.cartState.add(this.product, this.addQty.value!);
+        } else {
+            throw new Error('Never');
+        }
+    }
 }

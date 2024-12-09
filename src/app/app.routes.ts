@@ -18,6 +18,7 @@ export const routes: Routes = [
 // Takes first one and scans root list, until a match,
 // Takes the next segment and tries to match among children, and if it can't, reverts up a layer
 // foo/bar/:id  provides for component under params/paramMap
+
 // queryParams/queryParamMap, by contrast, do not occur here! Get a match, plainly, and then use dynamic:
 //      <a routerLink="/foo" [queryParams]="{key: 'value'}" ></a>
 // Otherwise, if you try to manually write it into routerLink (or dynamically write it there) it will undergo URL encoding and break shit
