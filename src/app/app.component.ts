@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { LgNavComponent } from './components/nav/lg-nav/lg-nav.component';
 import { SmNavComponent } from './components/nav/sm-nav/sm-nav.component';
 import { CartStateService } from './services/cart-state/cart-state.service';
+import { ShopifyService } from './services/shopify/shopify.service';
 
 @Component({
     selector: 'app-root',
@@ -11,4 +12,6 @@ import { CartStateService } from './services/cart-state/cart-state.service';
     styleUrl: './app.component.css',
     providers: [CartStateService],
 })
-export class AppComponent {}
+export class AppComponent {
+    constructor(private shopify: ShopifyService) {}
+}

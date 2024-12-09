@@ -5,6 +5,34 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
 
+import '@shopify/shopify-api/adapters/node';
+import { shopifyApi, LATEST_API_VERSION, Shopify } from '@shopify/shopify-api';
+
+console.log('Initializing shopify...');
+const shopify = shopifyApi({
+    apiKey: process.env['STOREFRONT_PUBLIC_KEY']!,
+    apiSecretKey: process.env['STOREFRONT_PRIVATE_KEY']!,
+    adminApiAccessToken: process.env['SHOPIFY_ADMIN_TOKEN']!,
+
+    scopes: ['read_products'],
+    hostName: 'ngrok-tunnel-address',
+    apiVersion: LATEST_API_VERSION,
+    isEmbeddedApp: true,
+
+    isTesting: true, // todo
+});
+
+shopify.auth
+    .begin({
+        shop: shopify.utils.sanitizeShop('stochastic-omen', true)!,
+        callbackPath: '/auth/callback',
+        isOnline: false,
+        rawRequest: null,
+    })
+    .then((res) => {});
+
+//
+
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 const indexHtml = join(serverDistFolder, 'index.server.html');
@@ -12,10 +40,11 @@ const indexHtml = join(serverDistFolder, 'index.server.html');
 const app = express();
 const commonEngine = new CommonEngine();
 
-// app.post('/api/test', (req, res) => {
-//     res.send({
-//         name: 'Steve',
-//     });
+// app.get('/api/products', (req, res) => {
+//     const exampleProducts: Product[] = [
+//         { id: 1, description: 'Lorem ipsum', image: '/foo.jpg', ingredients: ['foo', 'bar'], title: 'Product Example' },
+//     ];
+//     res.send(exampleProducts);
 // });
 
 /**
