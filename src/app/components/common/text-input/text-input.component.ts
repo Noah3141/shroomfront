@@ -9,5 +9,5 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class TextInputComponent {
     placeholder = input<string>();
-    formControl = input.required<FormControl>();
+    control = input.required<FormControl>();
 }

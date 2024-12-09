@@ -1,0 +1,23 @@
+nav {
+    @apply flex h-20 w-full flex-row justify-between gap-6 border-b bg-neutral-800 px-6 text-neutral-200;
+
+    .left {
+        @apply flex flex-row items-center;
+    }
+
+    .middle {
+        @apply flex h-full w-full flex-row items-center gap-3;
+    }
+
+    .right {
+        @apply flex flex-row items-center gap-3;
+    }
+}
+
+app-side-panel {
+    @apply fixed left-full top-1 z-50 w-screen max-w-screen-sm -translate-x-0 rounded-l-lg bg-neutral-100 p-3 shadow-lg drop-shadow-sm transition-all duration-300 ease-out;
+
+    &.open {
+        @apply -translate-x-full;
+    }
+}

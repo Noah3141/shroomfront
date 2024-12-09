@@ -1,0 +1,11 @@
+.container {
+    @apply relative size-8 text-inherit;
+
+    svg {
+        @apply absolute size-8 scale-0 transition-all;
+
+        &.visible {
+            @apply scale-100;
+        }
+    }
+}

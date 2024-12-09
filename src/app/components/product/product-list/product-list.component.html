@@ -1,16 +1,14 @@
-<div class="pt-12">
-    <button (click)="loadProducts()">Load</button>
-    <div class="flex flex-col gap-6 p-6">
+<div class="flex flex-col gap-3 p-12">
+    <app-button (onclick)="loadProducts()">Reload</app-button>
+    <div class="grid grid-cols-1 place-items-center gap-6 lg:grid-cols-2 xl:grid-cols-3">
         @if (isLoading) {
             <div class="h-96 w-full rounded border shadow">Loading...</div>
-        }
-
-        @for (item of products; track $index) {
-            <div class="rounded border shadow">
-                <h1>{{ item.title }}</h1>
-                <span>{{ item.description }}</span>
-                <img class="w-96" src="{{ item.image }}" />
-            </div>
+        } @else if (!isLoading && !!products.length) {
+            @for (product of products; track product.id) {
+                <app-product-card [product]="product" />
+            }
+        } @else if (!products.length) {
+            <span>No products!</span>
         }
     </div>
 </div>

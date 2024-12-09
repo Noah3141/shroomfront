@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignUpPage } from './sign-up.component';
+import { HamburgerIconComponent } from './hamburger-icon.component';
 
-describe('SignUpComponent', () => {
-    let component: SignUpPage;
-    let fixture: ComponentFixture<SignUpPage>;
+describe('HamburgerIconComponent', () => {
+    let component: HamburgerIconComponent;
+    let fixture: ComponentFixture<HamburgerIconComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [SignUpPage],
+            imports: [HamburgerIconComponent],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(SignUpPage);
+        fixture = TestBed.createComponent(HamburgerIconComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

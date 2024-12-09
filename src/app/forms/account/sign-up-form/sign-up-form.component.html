@@ -1,18 +1,8 @@
 <form>
     <h1>Sign Up</h1>
     <section>
-        <app-text-input
-            [formControl]="email"
-            placeholder="Email"
-        />
-        <app-text-input
-            [formControl]="password"
-            placeholder="Password"
-        />
-        <app-button
-            (click)="submitForm($event)"
-            [status]="status"
-            >Submit</app-button
-        >
+        <app-text-input [control]="email" placeholder="Email" />
+        <app-text-input [control]="password" placeholder="Password" />
+        <app-button (onclick)="submitForm($event)" [status]="status">Submit</app-button>
     </section>
 </form>

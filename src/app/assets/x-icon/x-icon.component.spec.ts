@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductPreviewComponent } from './product-preview.component';
+import { XIconComponent } from './x-icon.component';
 
-describe('ProductPreviewComponent', () => {
-  let component: ProductPreviewComponent;
-  let fixture: ComponentFixture<ProductPreviewComponent>;
+describe('XIconComponent', () => {
+  let component: XIconComponent;
+  let fixture: ComponentFixture<XIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProductPreviewComponent]
+      imports: [XIconComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProductPreviewComponent);
+    fixture = TestBed.createComponent(XIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

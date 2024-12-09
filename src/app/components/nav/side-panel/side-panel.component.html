@@ -1,0 +1,10 @@
+<div>
+    <div class="header">
+        <h2>{{ title() }}</h2>
+        <button (click)="closePanel($event)"><app-x-icon /></button>
+    </div>
+    <hr />
+    <div>
+        <ng-content />
+    </div>
+</div>

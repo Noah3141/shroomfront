@@ -1,0 +1,14 @@
+div {
+    @apply flex flex-col gap-3;
+    .header {
+        @apply flex flex-row items-center justify-between;
+
+        h2 {
+            @apply text-3xl font-semibold;
+        }
+    }
+
+    hr {
+        @apply border-neutral-300;
+    }
+}

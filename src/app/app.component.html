@@ -1,15 +1,4 @@
-<main class="mb-32 flex flex-col items-center justify-center gap-6">
-    <app-product-list />
-    <app-button>Submit</app-button>
-    <app-button color="danger">Danger</app-button>
-    <app-button fill="splash" color="neutral">Splash</app-button>
-    <app-button status="pending" color="danger">Danger</app-button>
-    <app-button status="error" color="danger">Danger</app-button>
-    <app-button status="pending" color="primary" fill="solid">Primary</app-button>
-    <app-button status="error" color="danger" size="square">Danger</app-button>
-    <app-button status="error" color="danger" size="small">Danger</app-button>
-
-    <app-sign-up-form />
-</main>
+<app-sm-nav class="lg:hidden" />
+<app-lg-nav class="hidden lg:block" />
 
 <router-outlet />

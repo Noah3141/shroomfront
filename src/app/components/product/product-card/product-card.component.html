@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="img-wrapper">
+        <img src="{{ this.product().image }}" />
+    </div>
+    <div class="body">
+        <div class="info">
+            <h1>
+                <a routerLink="/products/view" [queryParams]="{ productId: this.product().id }">
+                    {{ this.product().title }}
+                </a>
+            </h1>
+            <div class="description">{{ this.product().description }}</div>
+        </div>
+        <hr />
+        <div class="controls">
+            <app-button size="square" fill="splash" color="neutral" (onclick)="toggleProductInCart()">
+                <app-cart-icon [status]="status" />
+            </app-button>
+        </div>
+    </div>
+</div>

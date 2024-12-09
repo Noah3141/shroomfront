@@ -1,0 +1,22 @@
+<nav>
+    <div class="left">
+        <a routerLink="/">LOGO</a>
+    </div>
+    <div class="middle">
+        <a routerLink="/products">Products</a>
+    </div>
+    <div class="right">
+        <button (click)="this.cartState.openPanel()">
+            <app-cart-icon />
+        </button>
+        <button>
+            <app-profile-icon />
+        </button>
+    </div>
+</nav>
+
+<app-side-panel title="Cart" [class.open]="this.cartState.panelOpen()" (closepanel)="this.cartState.closePanel()">
+    @for (item of this.cartState.contents(); track item.product.id) {
+        <span>{{ item.product.title }}</span>
+    }
+</app-side-panel>

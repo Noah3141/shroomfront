@@ -2,6 +2,7 @@
     (mousedown)="setMouseDown()"
     (mouseup)="setMouseUp()"
     (mouseleave)="setMouseUp()"
+    (click)="onClick($event)"
     class="{{ size() }} {{ fill() }}-{{ color() }} "
     [class.clicked]="mouseDown"
     [disabled]="status() !== 'idle'"
@@ -10,8 +11,8 @@
         <div class="contents {{ status() == 'idle' && 'visible' }}">
             <ng-content />
         </div>
-        <div class=" contents loader {{ status() == 'pending' && 'visible' }}">Load</div>
-        <div class=" contents loader {{ status() == 'error' && 'visible' }}">Err</div>
-        <div class=" contents loader {{ status() == 'success' && 'visible' }}">Success!</div>
+        <div class="contents loader {{ status() == 'pending' && 'visible' }}">Load</div>
+        <div class="contents loader {{ status() == 'error' && 'visible' }}">Err</div>
+        <div class="contents loader {{ status() == 'success' && 'visible' }}">Success!</div>
     </div>
 </button>

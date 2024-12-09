@@ -1,4 +1,4 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Status } from '../../../../types/status';
 
 @Component({
@@ -14,7 +14,11 @@ export class ButtonComponent {
     color = input<'primary' | 'neutral' | 'danger'>('neutral');
     status = input<Status>('idle');
     className = input();
-    // onClick(e: MouseEvent) {}
+
+    onclick = output<MouseEvent>();
+    onClick(event: MouseEvent) {
+        this.onclick.emit(event);
+    }
 
     // Signals
     mouseDown = false;
